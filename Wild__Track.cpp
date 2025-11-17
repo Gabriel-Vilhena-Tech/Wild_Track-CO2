@@ -17,7 +17,7 @@ int main()
 
 	while (opcao != 0)
 	{
-		cout << "\n======================================" << endl;
+		cout << "======================================" << endl;
 		cout << "              ZOOLOGICO" << endl;
 		cout << "======================================" << endl;
 		cout << "1 - Cadastrar novo animal" << endl;
@@ -32,7 +32,7 @@ int main()
 		{
 			ofstream arquivo("animais.txt", ios::app);
 
-			cout << "\n---------- Cadastro de Animal ----------\n";
+			cout << "---------- Cadastro de Animal ----------" << endl;
 
 			cout << "Nome: ";
 			getline(cin, nome);
@@ -53,13 +53,13 @@ int main()
 			arquivo << nome << ";" << especie << ";" << idade << ";" << sexo << ";" << tipo << endl;
 			arquivo.close();
 
-			cout << "\nAnimal cadastrado com sucesso!\n" << endl;
+			cout << "Animal cadastrado com sucesso!" << endl;
 		}
 
 		else if (opcao == 2)
 		{
 			ifstream arquivo("animais.txt");
-			cout << "\n============== Animais Cadastrados ==============\n";
+			cout << "============== Animais Cadastrados ==============" << endl;
 
 			if (!arquivo.is_open())
 			{
@@ -86,16 +86,16 @@ int main()
 				arquivo.close();
 			}
 
-			cout << "==================================================\n";
+			cout << "==================================================" << endl;
 		}
 
 		else if (opcao != 0)
 		{
-			cout << "\nOpcao invalida. Tente novamente.\n" << endl;
+			cout << "Opcao invalida. Tente novamente." << endl;
 		}
 	}
 
-	cout << "\nEncerrando o programa..." << endl;
+	cout << "Encerrando o programa..." << endl;
 
 	return 0;
 }
