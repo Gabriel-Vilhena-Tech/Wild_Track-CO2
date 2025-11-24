@@ -31,7 +31,7 @@ string paraMaiusculo(string s)
 }
 
 // =======================================================
-//       Tenta encontrar e abrir foto com várias extensões
+//    Abrir foto usando comando START (método que funcionou)
 // =======================================================
 void abrirFotoDoAnimal(const string& nome)
 {
@@ -39,13 +39,18 @@ void abrirFotoDoAnimal(const string& nome)
 
     for (int i = 0; i < 5; i++)
     {
-        string caminho = nome + ext[i];
-        ifstream arq(caminho.c_str());
+        string arquivo = nome + ext[i];
 
-        if (arq.is_open())
+        ifstream teste(arquivo.c_str());
+        if (teste.is_open())
         {
-            cout << "Abrindo foto: " << caminho << endl;
-            ShellExecuteA(NULL, "open", caminho.c_str(), NULL, NULL, SW_SHOW);
+            teste.close();
+
+            cout << "Abrindo foto: " << arquivo << endl;
+
+            string comando = "start \"\" \"" + arquivo + "\"";
+            system(comando.c_str());
+
             return;
         }
     }
@@ -152,20 +157,20 @@ int main()
             arquivo << nome << ";" << especie << ";" << idade << ";" << sexo << ";" << tipo << endl;
             arquivo.close();
 
-            cout << "\nAnimal cadastrado com sucesso!" << endl;
+            cout << "Animal cadastrado com sucesso!" << endl;
 
             // Pergunta sobre foto
             string resp;
             do
             {
-                cout << "\nDeseja adicionar uma foto desse animal? (S/N): ";
+                cout << "Deseja adicionar uma foto desse animal? (S/N): ";
                 getline(cin, resp);
                 resp = paraMaiusculo(resp);
 
                 if (resp == "S" || resp == "SIM")
                 {
-                    cout << "\n>>> SALVE a foto com o nome: " << nome << ".jpg/.png/etc" << endl;
-                    cout << "    NA MESMA PASTA do programa.\n";
+                    cout << ">>> SALVE a foto com o nome: " << nome << ".jpg/.png/etc" << endl;
+                    cout << "    NA MESMA PASTA do programa.";
                     break;
                 }
                 else if (resp == "N" || resp == "NAO")
