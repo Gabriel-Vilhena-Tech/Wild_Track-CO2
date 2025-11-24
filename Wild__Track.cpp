@@ -30,9 +30,9 @@ string paraMaiusculo(string s)
     return s;
 }
 
-// =======================================================
-//    Abrir foto usando comando START (método que funcionou)
-// =======================================================
+// ===================================
+//    Abrir foto usando comando START 
+// ===================================
 void abrirFotoDoAnimal(const string& nome)
 {
     string ext[5] = { ".jpg", ".jpeg", ".png", ".bmp", ".gif" };
