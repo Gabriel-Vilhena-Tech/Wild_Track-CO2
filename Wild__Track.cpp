@@ -74,7 +74,7 @@ int main()
 
     while (opcao != 0)
     {
-        cout << "\n======================================" << endl;
+        cout << "======================================" << endl;
         cout << "              ZOOLOGICO" << endl;
         cout << "======================================" << endl;
         cout << "1 - Cadastrar animal" << endl;
@@ -191,7 +191,7 @@ int main()
         else if (opcao == 2)
         {
             ifstream arquivo("animais.txt");
-            cout << "\n========= LISTA DE ANIMAIS =========" << endl;
+            cout << "========= LISTA DE ANIMAIS =========" << endl;
 
             if (!arquivo.is_open())
             {
